@@ -1,1 +1,24 @@
 name: ExampleApp
+settings:
+  base:
+    MARKETING_VERSION: 1.0.0
+    CURRENT_PROJECT_VERSION: 1
+    IPHONEOS_DEPLOYMENT_TARGET: 15.0
+options:
+  bundleIdPrefix: org.app.example.u7chan
+  developmentLanguage: ja
+targets:
+  ExampleApp:
+    type: application
+    platform: iOS
+    settings:
+      IPHONEOS_DEPLOYMENT_TARGET: 15.0
+      SWIFT_VERSION: 5.0
+      INFOPLIST_FILE: ExampleApp/info.plist
+    sources:
+      - ExampleApp
+  ExampleAppTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - ExampleAppTests
