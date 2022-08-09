@@ -3,18 +3,19 @@ settings:
   base:
     MARKETING_VERSION: 1.0.0
     CURRENT_PROJECT_VERSION: 1
-    IPHONEOS_DEPLOYMENT_TARGET: 15.0
+    PRODUCT_NAME: ExampleApp
 options:
-  bundleIdPrefix: org.app.example.u7chan
   developmentLanguage: ja
+  bundleIdPrefix: org.app.example.u7chan
+  deploymentTarget:
+    iOS: '15.0'
 targets:
   ExampleApp:
     type: application
     platform: iOS
     settings:
-      IPHONEOS_DEPLOYMENT_TARGET: 15.0
       SWIFT_VERSION: 5.0
-      INFOPLIST_FILE: ExampleApp/info.plist
+      INFOPLIST_FILE: ExampleApp/Info.plist
     sources:
       - ExampleApp
   ExampleAppTests:
