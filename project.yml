@@ -25,5 +25,6 @@ targets:
     type: bundle.unit-test
     platform: iOS
     sources:
-      - ExampleApp
       - ExampleAppTests
+    dependencies:
+      - target: ExampleApp
