@@ -3,6 +3,7 @@ name: ExampleApp
 settings:
   base:
     PRODUCT_NAME: ExampleApp
+    INFOPLIST_FILE: ExampleApp/Supporting Files/Info.plist
     MARKETING_VERSION: 1.0.0
     CURRENT_PROJECT_VERSION: 1
     SWIFT_VERSION: 5.0
@@ -25,8 +26,16 @@ targets:
   ExampleApp:
     type: application
     platform: iOS
+    sources:
+      - ExampleApp
+    dependencies:
+      - package: Moya
+
+  ExampleAppFake:
+    type: application
+    platform: iOS
     settings:
-      INFOPLIST_FILE: ExampleApp/Supporting Files/Info.plist
+      PRODUCT_NAME: ExampleAppFake
     sources:
       - ExampleApp
     dependencies:
@@ -44,12 +53,36 @@ targets:
       - target: ExampleApp
 
 schemes:
-  ExampleAppDebug:
+  ExampleAppDev:
     build:
       targets:
         ExampleApp: all
         ExampleAppTests: [test]
+    run:
+      environmentVariables:
+        - variable: RUN_ENV
+          value: DEV
     test:
       config: Debug
       targets:
         - ExampleAppTests
+      environmentVariables:
+        - variable: RUN_ENV
+          value: TEST
+
+  ExampleAppFake:
+    build:
+      targets:
+        ExampleAppFake: all
+        ExampleAppTests: [test]
+    run:
+      environmentVariables:
+        - variable: RUN_ENV
+          value: FAKE
+    test:
+      config: Debug
+      targets:
+        - ExampleAppTests
+      environmentVariables:
+        - variable: RUN_ENV
+          value: TEST
