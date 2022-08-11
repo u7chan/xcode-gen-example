@@ -1,5 +1,4 @@
 import XCTest
-
 @testable import ExampleApp
 
 final class ExampleTests: XCTestCase {
