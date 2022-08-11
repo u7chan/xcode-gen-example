@@ -34,6 +34,7 @@ targets:
       - ExampleAppTests
     dependencies:
       - target: ExampleApp
+
 schemes:
   ExampleAppDebug:
     build:
