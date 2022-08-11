@@ -16,6 +16,11 @@ options:
   developmentLanguage: ja
   bundleIdPrefix: org.app.example.u7chan
 
+packages:
+  Moya:
+    url: https://github.com/Moya/Moya
+    from: 13.0.0
+
 targets:
   ExampleApp:
     type: application
@@ -24,6 +29,9 @@ targets:
       INFOPLIST_FILE: ExampleApp/Supporting Files/Info.plist
     sources:
       - ExampleApp
+    dependencies:
+      - package: Moya
+
   ExampleAppTests:
     type: bundle.unit-test
     platform: iOS
